@@ -104,8 +104,8 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
   assets:
-    - assets/logo_icon.png
-    - assets/splash_screen.png
+    - assets/launcher_icon.png
+    - assets/splash_image.png
 
   fonts:
     - family: Inter
