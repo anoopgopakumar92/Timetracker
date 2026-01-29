@@ -57,4 +57,4 @@ flutter build apk --debug
 
 You can download the latest debug APK from GitHub Releases:
 
-👉 <a href = "https://github.com/goputtanz/Timetracker/releases/download/v1.0.0/app-release.apk">Download APK</a>
+👉 <a href = "https://github.com/goputtanz/Timetracker/releases/download/v1.0.0/app-arm64-v8a-release.apk">Download APK</a>
