@@ -15,17 +15,23 @@ class NotificationService {
       fln.FlutterLocalNotificationsPlugin();
 
   Future<void> init() async {
-    tz.initializeTimeZones();
-    final timeZoneName = await FlutterTimezone.getLocalTimezone();
-    String timeZoneId = timeZoneName.toString();
-    // Handle the case where the return value is a TimezoneInfo object string
-    if (timeZoneId.startsWith('TimezoneInfo')) {
-      final match = RegExp(r'TimezoneInfo\(([^,]+),').firstMatch(timeZoneId);
-      if (match != null) {
-        timeZoneId = match.group(1) ?? timeZoneId;
+    try {
+      tz.initializeTimeZones();
+      final timeZoneName = await FlutterTimezone.getLocalTimezone();
+      String timeZoneId = timeZoneName.toString();
+      // Handle the case where the return value is a TimezoneInfo object string
+      if (timeZoneId.startsWith('TimezoneInfo')) {
+        final match = RegExp(r'TimezoneInfo\(([^,]+),').firstMatch(timeZoneId);
+        if (match != null) {
+          timeZoneId = match.group(1) ?? timeZoneId;
+        }
       }
+      tz.setLocalLocation(tz.getLocation(timeZoneId));
+    } catch (e) {
+      // Fallback to UTC if timezone detection fails
+      tz.initializeTimeZones();
+      tz.setLocalLocation(tz.UTC);
     }
-    tz.setLocalLocation(tz.getLocation(timeZoneId));
 
     const fln.AndroidInitializationSettings initializationSettingsAndroid =
         fln.AndroidInitializationSettings('@mipmap/ic_launcher');

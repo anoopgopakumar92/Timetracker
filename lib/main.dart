@@ -8,19 +8,40 @@ import 'theme/theme_controller.dart';
 import 'services/notification_service.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'data/fake_data_seeder.dart';
+import 'dart:async';
 
 const bool kUseFakeData = false;
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await NotificationService().init();
+void main() {
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-  if (kUseFakeData) {
-    await FakeDataSeeder.seedSessions();
-  }
+      // Remove splash first to ensure app is responsive
+      FlutterNativeSplash.remove();
 
-  FlutterNativeSplash.remove();
-  runApp(const ProviderScope(child: MyApp()));
+      try {
+        await NotificationService().init();
+      } catch (e) {
+        // Continue even if notification init fails
+        debugPrint('NotificationService init failed: $e');
+      }
+
+      if (kUseFakeData) {
+        try {
+          await FakeDataSeeder.seedSessions();
+        } catch (e) {
+          debugPrint('FakeDataSeeder failed: $e');
+        }
+      }
+
+      runApp(const ProviderScope(child: MyApp()));
+    },
+    (error, stack) {
+      debugPrint('Uncaught error: $error');
+      debugPrint('Stack: $stack');
+    },
+  );
 }
 
 class MyApp extends ConsumerWidget {
