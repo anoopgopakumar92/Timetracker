@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'theme/custom_colors.dart';
 import 'theme/theme_controller.dart';
-import 'presentation/timer/timer_contract.dart';
+import 'presentation/timer/timer_state.dart';
 import 'presentation/timer/timer_view_model.dart';
 import 'presentation/settings/settings_contract.dart';
 import 'presentation/settings/settings_view_model.dart';
@@ -142,7 +142,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage>
                     Container(
                       height: 40,
                       width: 1,
-                      color: Colors.grey.withOpacity(0.3),
+                      color: Colors.grey.withValues(alpha: 0.3),
                     ),
                     Expanded(
                       child: Padding(

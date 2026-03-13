@@ -1,9 +1,9 @@
 import 'package:home_widget/home_widget.dart';
-import '../presentation/timer/timer_contract.dart';
+import '../presentation/timer/timer_state.dart';
 
 class HomeWidgetService {
   static const String appGroupId =
-      'group.com.example.staytics'; // Replace with your actual App Group ID if using iOS
+      'group.com.appstation.staytics'; // Replace with your actual App Group ID if using iOS
   static const String androidWidgetName = 'HomeWidgetProvider';
 
   Future<void> updateWidget(TimerState state, {String? earnings}) async {
@@ -60,7 +60,15 @@ class HomeWidgetService {
     await HomeWidget.saveWidgetData<String>('status_text', statusText);
 
     // Update the widgets
-    await HomeWidget.updateWidget(name: 'SmallHomeWidgetProvider');
-    await HomeWidget.updateWidget(name: 'MediumHomeWidgetProvider');
+    await HomeWidget.updateWidget(
+      name: 'SmallHomeWidgetProvider',
+      iOSName: 'SmallHomeWidgetProvider',
+      androidName: 'SmallHomeWidgetProvider',
+    );
+    await HomeWidget.updateWidget(
+      name: 'MediumHomeWidgetProvider',
+      iOSName: 'MediumHomeWidgetProvider',
+      androidName: 'MediumHomeWidgetProvider',
+    );
   }
 }

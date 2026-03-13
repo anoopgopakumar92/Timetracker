@@ -6,7 +6,7 @@ import '../../data/backup_repository.dart';
 import '../settings/settings_view_model.dart';
 import '../../services/notification_service.dart';
 import '../../services/home_widget_service.dart';
-import 'timer_contract.dart';
+import 'timer_state.dart';
 
 class TimerViewModel extends Notifier<TimerState> {
   final TimerRepository _repository = TimerRepository();
