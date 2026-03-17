@@ -148,7 +148,9 @@ class NotificationService {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
 
-    print('Scheduling notification for: $scheduledDate (Local: ${tz.local})');
+    debugPrint(
+      'Scheduling notification for: $scheduledDate (Local: ${tz.local})',
+    );
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
       id,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../dashboard_page.dart';
+import '../dashboard/presentation/widgets/dashboard_widgets_app.dart';
 import '../settings/settings_screen.dart';
 import '../stats/stats_screen.dart';
 
@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = const [
-    DashboardPage(),
+    DashboardApp(),
     StatsScreen(),
     SettingsScreen(),
   ];

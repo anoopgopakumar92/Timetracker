@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../theme/custom_colors.dart';
+import '../../common/theme/custom_colors.dart';
 import 'settings_contract.dart';
 import 'settings_view_model.dart';
-import '../timer/timer_view_model.dart';
+import '../dashboard/presentation/view_models/timer_view_model.dart';
 import '../backup/backup_setup_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../widgets/custom_dialog.dart';
-import '../../services/notification_service.dart';
+import '../../common/widgets/custom_dialog.dart';
+import '../services/notification_service.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class SettingsScreen extends ConsumerWidget {

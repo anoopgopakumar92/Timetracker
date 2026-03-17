@@ -40,7 +40,7 @@ dependencies:
   google_sign_in: ^6.2.1
   googleapis: ^15.0.0
   extension_google_sign_in_as_googleapis_auth: ^2.0.13
-  flutter_riverpod: ^3.0.3
+  flutter_riverpod: ^3.0.0
   flutter_local_notifications: ^19.5.0
   fl_chart: ^1.1.1
   intl: ^0.20.2
@@ -48,6 +48,8 @@ dependencies:
   flutter_timezone: ^5.0.1
   home_widget: ^0.8.1
   package_info_plus: ^9.0.0
+  riverpod_annotation: ^3.0.0
+  freezed_annotation: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,9 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_native_splash: ^2.4.7
   flutter_launcher_icons: ^0.13.1
+  build_runner: ^2.4.0
+  riverpod_generator: ^3.0.0
+  freezed: ^3.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

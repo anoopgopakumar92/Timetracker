@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/local_database.dart';
 import 'stats_contract.dart';
 import '../settings/settings_view_model.dart';
-import '../timer/timer_view_model.dart';
+import '../dashboard/presentation/view_models/timer_view_model.dart';
 
 final statsProvider = NotifierProvider<StatsViewModel, StatsState>(
   StatsViewModel.new,

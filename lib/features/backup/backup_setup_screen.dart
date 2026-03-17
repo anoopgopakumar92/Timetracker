@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'backup_view_model.dart';
-import '../../theme/custom_colors.dart';
-import '../widgets/custom_dialog.dart';
-import '../timer/timer_view_model.dart';
+import '../../common/theme/custom_colors.dart';
+import '../../common/widgets/custom_dialog.dart';
+import '../dashboard/presentation/view_models/timer_view_model.dart';
 
 class BackupSetupScreen extends ConsumerWidget {
   const BackupSetupScreen({super.key});

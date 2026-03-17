@@ -1,9 +1,9 @@
-import 'package:staytics/presentation/timer/timer_state.dart';
+import 'package:staytics/features/dashboard/presentation/states/timer_state.dart';
 
-class TimerCalculation {
-  String _calculateTodayTotal(TimerState state) {
-    final now = DateTime.now();
-    final todayStr = now.toIso8601String().substring(0, 10);
+extension TimeCalc on DateTime {
+ 
+  String calcTodaysTime(TimerState state) {
+    final todayStr = toIso8601String().substring(0, 10);
 
     // Sum seconds from completed sessions today
     final completedSeconds = state.weeklyStats
@@ -21,4 +21,7 @@ class TimerCalculation {
 
     return '$hours:$minutes:$seconds';
   }
+
+
+
 }

@@ -1,9 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:staytics/theme/custom_colors.dart';
+import 'package:staytics/common/theme/custom_colors.dart';
 import 'stats_view_model.dart';
-import 'stats_contract.dart';
 import '../settings/settings_view_model.dart';
 
 class StatsScreen extends ConsumerStatefulWidget {

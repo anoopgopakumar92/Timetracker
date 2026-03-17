@@ -5,7 +5,7 @@ import '../../data/backup_repository.dart';
 import '../../data/settings_repository.dart';
 import '../../data/local_database.dart';
 import '../../data/timer_repository.dart';
-import '../../services/notification_service.dart';
+import '../services/notification_service.dart';
 
 class SettingsViewModel extends Notifier<SettingsState> {
   final _repository = SettingsRepository();

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:home_widget/home_widget.dart';
-import 'package:staytics/services/home_widget_service.dart';
-import 'presentation/main/main_screen.dart';
+import 'package:staytics/features/services/home_widget_service.dart';
+import 'features/main/main_screen.dart';
 
-import 'theme/app_theme.dart';
-import 'theme/theme_controller.dart';
+import 'common/theme/app_theme.dart';
+import 'common/theme/theme_controller.dart';
 
-import 'services/notification_service.dart';
+import 'features/services/notification_service.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'data/fake_data_seeder.dart';
 

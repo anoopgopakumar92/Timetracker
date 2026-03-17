@@ -1,5 +1,5 @@
 import 'package:home_widget/home_widget.dart';
-import '../presentation/timer/timer_state.dart';
+import '../dashboard/presentation/states/timer_state.dart';
 
 class HomeWidgetService {
   static const String appGroupId =

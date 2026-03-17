@@ -15,6 +15,8 @@ class TimerState {
   final bool workNotificationSent;
   final bool breakNotificationSent;
   final String earnings;
+  final int totalBreakSeconds;
+  final int totalBreakCount;
 
   const TimerState({
     this.status = TimerStatus.ready,
@@ -28,6 +30,8 @@ class TimerState {
     this.workNotificationSent = false,
     this.breakNotificationSent = false,
     this.earnings = '',
+    this.totalBreakSeconds = 0,
+    this.totalBreakCount = 0,
   });
 
   TimerState copyWith({
@@ -42,6 +46,8 @@ class TimerState {
     bool? workNotificationSent,
     bool? breakNotificationSent,
     String? earnings,
+    int? totalBreakSeconds,
+    int? totalBreakCount,
   }) {
     return TimerState(
       status: status ?? this.status,
@@ -56,6 +62,8 @@ class TimerState {
       breakNotificationSent:
           breakNotificationSent ?? this.breakNotificationSent,
       earnings: earnings ?? this.earnings,
+      totalBreakSeconds: totalBreakSeconds ?? this.totalBreakSeconds,
+      totalBreakCount: totalBreakCount ?? this.totalBreakSeconds
     );
   }
 }

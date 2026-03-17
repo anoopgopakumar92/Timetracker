@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/timer_repository.dart';
-import '../../data/local_database.dart';
-import '../../data/backup_repository.dart';
-import '../settings/settings_view_model.dart';
-import '../../services/notification_service.dart';
-import '../../services/home_widget_service.dart';
-import 'timer_state.dart';
+import '../../../../data/timer_repository.dart';
+import '../../../../data/local_database.dart';
+import '../../../../data/backup_repository.dart';
+import '../../../settings/settings_view_model.dart';
+import '../../../services/notification_service.dart';
+import '../../../services/home_widget_service.dart';
+import '../states/timer_state.dart';
 
 class TimerViewModel extends Notifier<TimerState> {
   final TimerRepository _repository = TimerRepository();
@@ -30,6 +30,7 @@ class TimerViewModel extends Notifier<TimerState> {
     ref.onDispose(() {
       _stopTicker();
     });
+
     return const TimerState();
   }
 
@@ -309,6 +310,7 @@ class TimerViewModel extends Notifier<TimerState> {
       }
 
       state = state.copyWith(breakTime: newBreakTime);
+      setTotalBreakTime();
     }
   }
 
@@ -340,6 +342,26 @@ class TimerViewModel extends Notifier<TimerState> {
     if (oldStatus != value.status) {
       _updateWidget();
     }
+  }
+
+  void setTotalBreakTime() {
+    final now = DateTime.now();
+    final todayStr = now.toIso8601String().substring(0, 10);
+
+    // Sum break time and count from completed sessions today
+    final dbBreakTime = state.weeklyStats
+        .where((s) => s['date'] == todayStr)
+        .fold<int>(0, (sum, s) => sum + ((s['break_time'] ?? 0) as int));
+
+    final dbBreakCount = state.weeklyStats
+        .where((s) => s['date'] == todayStr)
+        .fold<int>(0, (sum, s) => sum + ((s['break_count'] ?? 0) as int));
+
+    // Add current session break stats
+    state = state.copyWith(
+      totalBreakSeconds: dbBreakTime + state.breakTime.inSeconds,
+      totalBreakCount: dbBreakCount + state.breakCount,
+    );
   }
 
   void _updateEarnings() {
